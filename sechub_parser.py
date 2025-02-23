@@ -35,6 +35,7 @@ containerTag = os.environ['docker_tag']
 # open Trivy vuln report & parse out vuln info
 with open('results.json') as json_file:
     data = json.load(json_file)
+    data = data['Results']
     if data[0]['Vulnerabilities'] is None:
         print('No vulnerabilities')
     else:
